@@ -8,7 +8,6 @@ before_install:
   - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
       pip install functools32;
     fi
-  - git clone https://github.com/sorgerlab/biolit.git
 script:
   - pwd
   - echo $TRAVIS_BUILD_DIR
