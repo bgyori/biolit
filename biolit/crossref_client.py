@@ -4,7 +4,7 @@ import os
 import re
 import logging
 import requests
-from indra.literature import pubmed_client
+from biolit import pubmed_client
 # Python3
 try:
     from functools import lru_cache

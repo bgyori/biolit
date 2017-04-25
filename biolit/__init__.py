@@ -3,15 +3,15 @@ from builtins import dict, str
 import requests
 import logging
 import xml.etree.ElementTree as ET
-from indra.literature import pubmed_client
-from indra.literature import pmc_client
-from indra.literature import crossref_client
-from indra.literature import elsevier_client
+from biolit import pubmed_client
+from biolit import pmc_client
+from biolit import crossref_client
+from biolit import elsevier_client
 try:
     from functools import lru_cache
 except ImportError:
     from functools32 import lru_cache
-from indra.util import UnicodeXMLTreeBuilder as UTB
+from biolit.util import UnicodeXMLTreeBuilder as UTB
 
 logger = logging.getLogger('literature')
 

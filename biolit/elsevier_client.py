@@ -16,8 +16,8 @@ try:
 # Python2
 except ImportError:
     from functools32 import lru_cache
-from indra.util import read_unicode_csv
-from indra.util import UnicodeXMLTreeBuilder as UTB
+from biolit.util import read_unicode_csv
+from biolit.util import UnicodeXMLTreeBuilder as UTB
 
 logger = logging.getLogger('elsevier')
 

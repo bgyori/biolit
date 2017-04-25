@@ -14,7 +14,7 @@ try:
 except ImportError:
     from functools32 import lru_cache
 from indra.databases import hgnc_client
-from indra.util import UnicodeXMLTreeBuilder as UTB
+from biolit.util import UnicodeXMLTreeBuilder as UTB
 
 logger = logging.getLogger('pubmed')
 

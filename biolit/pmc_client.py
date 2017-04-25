@@ -4,8 +4,8 @@ import xml.etree.ElementTree as ET
 import os.path
 import requests
 import logging
-from indra.literature import pubmed_client
-from indra.util import UnicodeXMLTreeBuilder as UTB
+from biolit import pubmed_client
+from biolit.util import UnicodeXMLTreeBuilder as UTB
 
 logger = logging.getLogger('pmc')
 
