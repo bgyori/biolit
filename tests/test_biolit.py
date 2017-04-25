@@ -1,7 +1,7 @@
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import dict, str
 from biolit import id_lookup, get_full_text
-from indra.util import unicode_strs
+from biolit.util import unicode_strs
 
 def test_get_full_text_pmc():
     txt, txt_format = get_full_text('PMC4322985', 'pmcid')

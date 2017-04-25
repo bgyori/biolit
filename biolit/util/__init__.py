@@ -4,6 +4,36 @@ import sys
 import csv
 import xml.etree.ElementTree as ET
 
+if sys.version_info[0] >= 3:
+    non_unicode = bytes
+else:
+    non_unicode = str
+
+def unicode_strs(obj, attr_filter=None):
+    if isinstance(obj, non_unicode):
+        return False
+    # Check for an iterable
+    if isinstance(obj, list) or isinstance(obj, tuple) or \
+       isinstance(obj, set):
+        for item in obj:
+            has_unicode_strs = unicode_strs(item)
+            if not has_unicode_strs:
+                return False
+    if hasattr(obj, '__dict__'):
+        for item_name, item in obj.__dict__.items():
+            if attr_filter and item_name in attr_filter:
+                continue
+            has_unicode_strs = unicode_strs(item)
+            if not has_unicode_strs:
+                return False
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            k_has_unicode_strs = unicode_strs(k)
+            v_has_unicode_strs = unicode_strs(v)
+            if not k_has_unicode_strs or not v_has_unicode_strs:
+                return False
+    return True
+
 def read_unicode_csv(filename, delimiter=',', quotechar='"',
                      quoting=csv.QUOTE_MINIMAL, lineterminator='\n',
                      encoding='utf-8'):

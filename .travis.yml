@@ -3,7 +3,7 @@ python:
   - "2.7"
   - "3.5"
 before_install:
-  - pip install future requests nose
+  - pip install future requests nose boto3
   - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
       pip install functools32;
     fi

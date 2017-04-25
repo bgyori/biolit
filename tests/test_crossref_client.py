@@ -1,7 +1,7 @@
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import dict, str
 from biolit import crossref_client
-from indra.util import unicode_strs
+from biolit.util import unicode_strs
 
 test_doi = '10.1016/j.ccell.2016.02.010'
 

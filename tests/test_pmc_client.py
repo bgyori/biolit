@@ -2,7 +2,7 @@ from __future__ import absolute_import, print_function, unicode_literals
 from builtins import dict, str
 from biolit import pmc_client
 from nose.tools import raises
-from indra.util import unicode_strs
+from biolit.util import unicode_strs
 
 example_ids = {'pmid': '25361007',
                'pmcid': 'PMC4322985',

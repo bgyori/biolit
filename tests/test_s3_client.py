@@ -1,8 +1,8 @@
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import dict, str
-from biolit import s3_client
-from indra.util import unicode_strs
 import zlib
+from biolit import s3_client
+from biolit.util import unicode_strs
 
 def test_check_pmid():
     pmid = s3_client.check_pmid(12345)
