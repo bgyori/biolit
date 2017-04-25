@@ -14,13 +14,13 @@ pmid_convert_url = 'http://www.ncbi.nlm.nih.gov/pmc/utils/idconv/v1.0/'
 
 # Paths to resource files
 pmids_fulltext_path = os.path.join(os.path.dirname(__file__),
-                                   'pmids_fulltext.txt')
+                                   'resources', 'pmids_fulltext.txt')
 pmids_oa_xml_path = os.path.join(os.path.dirname(__file__),
-                                   'pmids_oa_xml.txt')
+                                   'resources', 'pmids_oa_xml.txt')
 pmids_oa_txt_path = os.path.join(os.path.dirname(__file__),
-                                   'pmids_oa_txt.txt')
+                                   'resources', 'pmids_oa_txt.txt')
 pmids_auth_xml_path = os.path.join(os.path.dirname(__file__),
-                                   'pmids_auth_xml.txt')
+                                   'resources', 'pmids_auth_xml.txt')
 # Define global dict containing lists of PMIDs among mineable PMCs
 # to be lazily initialized
 pmids_fulltext_dict = {}
