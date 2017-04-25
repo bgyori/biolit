@@ -13,10 +13,18 @@ try:
 # Python 2
 except ImportError:
     from functools32 import lru_cache
-from indra.databases import hgnc_client
-from biolit.util import UnicodeXMLTreeBuilder as UTB
 
 logger = logging.getLogger('pubmed')
+
+try:
+    from indra.databases import hgnc_client
+    have_hgnc_client = True
+except ImportError:
+    logger.error('Couldn\'t load hgnc_client; pubmed_client.get_ids_for_gene' +
+                 ' will not be available.')
+    have_hgnc_client = False
+from biolit.util import UnicodeXMLTreeBuilder as UTB
+
 
 pubmed_search = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi'
 pubmed_fetch = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi'
@@ -79,6 +87,9 @@ def get_ids_for_gene(hgnc_name, **kwargs):
         (using the hgnc_client module) and in turn used to obtain the Entrez
         ID associated with the gene. Entrez is then queried for that ID.
     """
+    if not have_hgnc_client:
+        logger.error('Cannot use get_ids_for_gene without an hgnc_client.')
+        return []
 
     # Get the HGNC ID for the HGNC name
     hgnc_id = hgnc_client.get_hgnc_id(hgnc_name)

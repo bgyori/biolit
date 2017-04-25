@@ -1,19 +1,23 @@
 from __future__ import absolute_import, print_function, unicode_literals
 from builtins import dict, str
 import requests
-import logging
 import xml.etree.ElementTree as ET
-from biolit import pubmed_client
-from biolit import pmc_client
-from biolit import crossref_client
-from biolit import elsevier_client
 try:
     from functools import lru_cache
 except ImportError:
     from functools32 import lru_cache
+
+import logging
+logging.basicConfig(format='%(levelname)s: biolit/%(name)s - %(message)s',
+                    level=logging.INFO)
+
+from biolit import pubmed_client
+from biolit import pmc_client
+from biolit import crossref_client
+from biolit import elsevier_client
 from biolit.util import UnicodeXMLTreeBuilder as UTB
 
-logger = logging.getLogger('literature')
+logger = logging.getLogger('biolit')
 
 def id_lookup(paper_id, idtype):
     """Take an ID of type PMID, PMCID, or DOI and lookup the other IDs.

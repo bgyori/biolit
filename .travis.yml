@@ -3,13 +3,9 @@ python:
   - "2.7"
   - "3.5"
 before_install:
-  - pwd
   - pip install future requests nose
   - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
       pip install functools32;
     fi
 script:
-  - pwd
-  - echo $TRAVIS_BUILD_DIR
-  - cd $TRAVIS_BUILD_DIR
   - nosetests
